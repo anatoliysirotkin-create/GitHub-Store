@@ -1072,6 +1072,7 @@
     <string name="apps_skip_version_snackbar">%1$s ignorée — vous recevrez un avis dès qu\'une nouvelle version paraîtra</string>
     <string name="apps_unskip_version_snackbar">Avis de mise à jour réactivé</string>
     <string name="apps_skip_version_error">Impossible de mettre à jour la préférence</string>
+    <string name="apps_unskip_version_error">Impossible de restaurer la notification de mise à jour</string>
     <string name="skipped_updates_entry_title">Mises à jour ignorées</string>
     <string name="skipped_updates_entry_description">Versions que vous avez choisi d\'ignorer</string>
     <string name="skipped_updates_title">Mises à jour ignorées</string>

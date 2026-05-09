@@ -1110,6 +1110,7 @@
     <string name="apps_skip_version_snackbar">%1$s छोड़ा गया — नया संस्करण आने पर सूचना मिलेगी</string>
     <string name="apps_unskip_version_snackbar">अपडेट प्रॉम्प्ट फिर से चालू</string>
     <string name="apps_skip_version_error">प्राथमिकता अपडेट नहीं हो सकी</string>
+    <string name="apps_unskip_version_error">अपडेट सूचना पुनः सक्षम नहीं हो सकी</string>
     <string name="skipped_updates_entry_title">छोड़े गए अपडेट</string>
     <string name="skipped_updates_entry_description">वे संस्करण जिन्हें आपने अनदेखा करना चुना है</string>
     <string name="skipped_updates_title">छोड़े गए अपडेट</string>

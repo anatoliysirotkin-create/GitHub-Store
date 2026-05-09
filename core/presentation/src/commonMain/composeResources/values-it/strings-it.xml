@@ -1111,6 +1111,7 @@
     <string name="apps_skip_version_snackbar">%1$s ignorata — riceverai un avviso quando uscirà una versione più recente</string>
     <string name="apps_unskip_version_snackbar">Avviso di aggiornamento riattivato</string>
     <string name="apps_skip_version_error">Impossibile aggiornare la preferenza</string>
+    <string name="apps_unskip_version_error">Impossibile ripristinare la notifica di aggiornamento</string>
     <string name="skipped_updates_entry_title">Aggiornamenti ignorati</string>
     <string name="skipped_updates_entry_description">Versioni che hai scelto di ignorare</string>
     <string name="skipped_updates_title">Aggiornamenti ignorati</string>

@@ -619,6 +619,7 @@ class AppsViewModel(
             try {
                 installedAppsRepository.setSkippedReleaseTag(packageName, trimmed)
                 _events.send(AppsEvent.ShowSuccess(getString(Res.string.apps_skip_version_snackbar, trimmed)))
+                installedAppsRepository.checkForUpdates(packageName)
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
@@ -638,7 +639,7 @@ class AppsViewModel(
                 throw e
             } catch (e: Exception) {
                 logger.error("Failed to unskip release for $packageName: ${e.message}")
-                _events.send(AppsEvent.ShowError(getString(Res.string.apps_skip_version_error)))
+                _events.send(AppsEvent.ShowError(getString(Res.string.apps_unskip_version_error)))
             }
         }
     }

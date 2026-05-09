@@ -93,7 +93,7 @@ fun SkippedUpdatesRoot(
                     IconButton(onClick = onNavigateBack) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = null,
+                            contentDescription = stringResource(Res.string.navigate_back),
                         )
                     }
                 },

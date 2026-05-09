@@ -1066,6 +1066,7 @@
     <string name="apps_skip_version_snackbar">%1$s をスキップしました。新しいバージョンが出たら通知します。</string>
     <string name="apps_unskip_version_snackbar">アップデート通知を再び有効にしました</string>
     <string name="apps_skip_version_error">設定を更新できませんでした</string>
+    <string name="apps_unskip_version_error">更新通知を復元できませんでした</string>
     <string name="skipped_updates_entry_title">スキップ中のアップデート</string>
     <string name="skipped_updates_entry_description">無視を選んだバージョン</string>
     <string name="skipped_updates_title">スキップ中のアップデート</string>

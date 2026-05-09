@@ -1169,7 +1169,7 @@ fun AppItemCard(
                                         onUnskipVersionClick()
                                     },
                                 )
-                            } else if (app.isUpdateAvailable && !app.latestVersion.isNullOrBlank()) {
+                            } else if (app.isUpdateAvailable && !(app.latestVersion ?: app.latestVersionName).isNullOrBlank()) {
                                 DropdownMenuItem(
                                     text = { Text(stringResource(Res.string.apps_skip_version)) },
                                     onClick = {

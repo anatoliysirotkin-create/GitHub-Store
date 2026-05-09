@@ -1101,6 +1101,7 @@
     <string name="apps_skip_version_snackbar">%1$s 건너뜀 — 최신 버전이 출시되면 알려드립니다</string>
     <string name="apps_unskip_version_snackbar">업데이트 알림 다시 사용 설정됨</string>
     <string name="apps_skip_version_error">설정을 업데이트할 수 없습니다</string>
+    <string name="apps_unskip_version_error">업데이트 알림을 복원할 수 없습니다</string>
     <string name="skipped_updates_entry_title">건너뛴 업데이트</string>
     <string name="skipped_updates_entry_description">무시하기로 한 버전</string>
     <string name="skipped_updates_title">건너뛴 업데이트</string>

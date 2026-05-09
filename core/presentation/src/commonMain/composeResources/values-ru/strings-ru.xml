@@ -1092,6 +1092,7 @@
     <string name="apps_skip_version_snackbar">Версия %1$s пропущена — вы получите уведомление, когда выйдет более новая</string>
     <string name="apps_unskip_version_snackbar">Уведомление об обновлении снова включено</string>
     <string name="apps_skip_version_error">Не удалось обновить настройку</string>
+    <string name="apps_unskip_version_error">Не удалось восстановить уведомление об обновлении</string>
     <string name="skipped_updates_entry_title">Пропущенные обновления</string>
     <string name="skipped_updates_entry_description">Версии, которые вы решили игнорировать</string>
     <string name="skipped_updates_title">Пропущенные обновления</string>

@@ -1092,6 +1092,7 @@
     <string name="apps_skip_version_snackbar">Pominięto %1$s — otrzymasz powiadomienie, gdy pojawi się nowsza wersja</string>
     <string name="apps_unskip_version_snackbar">Powiadomienie o aktualizacji ponownie włączone</string>
     <string name="apps_skip_version_error">Nie udało się zmienić preferencji</string>
+    <string name="apps_unskip_version_error">Nie udało się przywrócić powiadomienia o aktualizacji</string>
     <string name="skipped_updates_entry_title">Pominięte aktualizacje</string>
     <string name="skipped_updates_entry_description">Wersje, które zdecydowałeś się ignorować</string>
     <string name="skipped_updates_title">Pominięte aktualizacje</string>

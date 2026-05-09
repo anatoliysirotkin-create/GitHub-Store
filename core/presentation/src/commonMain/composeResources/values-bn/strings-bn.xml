@@ -1099,6 +1099,7 @@
     <string name="apps_skip_version_snackbar">%1$s এড়ানো হয়েছে — নতুন সংস্করণ এলে জানানো হবে</string>
     <string name="apps_unskip_version_snackbar">আপডেট প্রম্পট আবার চালু</string>
     <string name="apps_skip_version_error">পছন্দ আপডেট করা যায়নি</string>
+    <string name="apps_unskip_version_error">আপডেট বিজ্ঞপ্তি পুনরুদ্ধার করা যায়নি</string>
     <string name="skipped_updates_entry_title">এড়ানো আপডেট</string>
     <string name="skipped_updates_entry_description">যেসব সংস্করণ আপনি উপেক্ষা করেছেন</string>
     <string name="skipped_updates_title">এড়ানো আপডেট</string>
