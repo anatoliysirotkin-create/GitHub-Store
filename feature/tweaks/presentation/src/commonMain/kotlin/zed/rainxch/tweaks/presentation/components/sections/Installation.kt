@@ -21,6 +21,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.outlined.AdminPanelSettings
 import androidx.compose.material.icons.outlined.InstallMobile
 import androidx.compose.material.icons.outlined.Schedule
 import androidx.compose.material.icons.outlined.Security
@@ -494,7 +495,7 @@ private fun InstallerTypeCard(
             }
 
             InstallerOption(
-                icon = Icons.Outlined.Security,
+                icon = Icons.Outlined.AdminPanelSettings,
                 title = stringResource(Res.string.installer_type_root),
                 description = stringResource(Res.string.installer_type_root_description),
                 isSelected = selectedType == InstallerType.ROOT,
