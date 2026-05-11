@@ -137,6 +137,16 @@ object AssetVariant {
     private val VOCABULARY: Set<String> by lazy { ARCH_TOKENS + FLAVOR_TOKENS }
 
     /**
+     * Strips hyphens/underscores so alias spellings of the same flavor
+     * (`f-droid` ⇄ `fdroid`, `play-store` ⇄ `playstore`) collapse to a
+     * single comparable form. Used by [filterByPackageFlavor] to align
+     * asset-token output (which may carry hyphenated bi-grams) with
+     * package-segment input (which can't legally contain hyphens).
+     */
+    private fun canonicalFlavorToken(token: String): String =
+        token.replace('-', ' ').replace('_', ' ').replace(" ", "").lowercase()
+
+    /**
      * Splits a filename into candidate tokens. Splits on the usual
      * separators (`-`, `_`, ` `, `.`) so that compound names like
      * `arm64-v8a` survive intact only after the recombine step below.
@@ -486,11 +496,19 @@ object AssetVariant {
         if (assets.isEmpty()) return assets
         val packageSegments =
             trackedPackageName.lowercase().split('.').filter { it.isNotBlank() }
-        val packageFlavorTokens = packageSegments.filter { it in FLAVOR_TOKENS }.toSet()
+        // Canonicalise both sides via hyphen/underscore strip so package
+        // segments (`fdroid`, can't legally hold `-`) match against asset
+        // tokens that may come back hyphenated (`f-droid`) when the
+        // filename uses an aliased spelling. Without this, the set
+        // intersection misses the alias forms `FLAVOR_TOKENS` deliberately
+        // covers.
+        val packageFlavorTokens = packageSegments.filter { it in FLAVOR_TOKENS }
+            .map(::canonicalFlavorToken)
+            .toSet()
 
         return if (packageFlavorTokens.isNotEmpty()) {
             val matching = assets.filter { asset ->
-                extractTokens(asset.name).any { it in packageFlavorTokens }
+                extractTokens(asset.name).any { canonicalFlavorToken(it) in packageFlavorTokens }
             }
             matching.ifEmpty { assets }
         } else {
