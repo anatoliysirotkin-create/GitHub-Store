@@ -298,6 +298,10 @@ class AppsViewModel(
                 refresh()
             }
 
+            AppsAction.OnLifecycleResume -> {
+                autoCheckForUpdatesIfNeeded()
+            }
+
             AppsAction.OnToggleUpToDateSection -> {
                 _state.update { it.copy(isUpToDateSectionExpanded = !it.isUpToDateSectionExpanded) }
             }

@@ -170,6 +170,23 @@ fun AppsRoot(
     val snackbarHostState = remember { SnackbarHostState() }
     val coroutineScope = rememberCoroutineScope()
 
+    // Re-entry sync: fires the cooldown-gated update check whenever the
+    // user returns to the Apps screen. Catches external installs that
+    // `PackageEventReceiver` missed when GHS was background-killed by
+    // an aggressive OEM ROM. The VM debounces network calls via
+    // `UPDATE_CHECK_COOLDOWN_MS` (30 min) so rapid resumes are cheap.
+    val lifecycleOwner = androidx.lifecycle.compose.LocalLifecycleOwner.current
+    androidx.compose.runtime.DisposableEffect(lifecycleOwner) {
+        val observer =
+            androidx.lifecycle.LifecycleEventObserver { _, event ->
+                if (event == androidx.lifecycle.Lifecycle.Event.ON_RESUME) {
+                    viewModel.onAction(AppsAction.OnLifecycleResume)
+                }
+            }
+        lifecycleOwner.lifecycle.addObserver(observer)
+        onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
+    }
+
     ObserveAsEvents(viewModel.events) { event ->
         when (event) {
             is AppsEvent.NavigateToRepo -> {
