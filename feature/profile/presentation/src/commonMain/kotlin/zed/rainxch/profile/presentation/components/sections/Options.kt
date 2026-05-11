@@ -47,15 +47,16 @@ fun LazyListScope.options(
     onAction: (ProfileAction) -> Unit,
 ) {
     item {
-        OptionCard(
-            icon = Icons.Default.Star,
-            label = stringResource(Res.string.stars),
-            description = stringResource(Res.string.profile_stars_description),
-            onClick = {
-                onAction(ProfileAction.OnStarredReposClick)
-            },
-            enabled = isUserLoggedIn,
-        )
+        if (isUserLoggedIn) {
+            OptionCard(
+                icon = Icons.Default.Star,
+                label = stringResource(Res.string.stars),
+                description = stringResource(Res.string.profile_stars_description),
+                onClick = {
+                    onAction(ProfileAction.OnStarredReposClick)
+                },
+            )
+        }
 
         Spacer(Modifier.height(4.dp))
 
@@ -126,7 +127,6 @@ private fun OptionCard(
     description: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    enabled: Boolean = true,
     onLongClick: (() -> Unit)? = null,
     hasBadge: Boolean = false,
 ) {
@@ -145,7 +145,6 @@ private fun OptionCard(
     if (onLongClick != null) {
         Card(
             modifier = modifier.combinedClickable(
-                enabled = enabled,
                 onClick = onClick,
                 onLongClick = onLongClick,
             ),
@@ -153,7 +152,12 @@ private fun OptionCard(
             shape = cardShape,
             border = cardBorder,
         ) {
-            OptionCardContent(icon = icon, label = label, description = description, hasBadge = hasBadge)
+            OptionCardContent(
+                icon = icon,
+                label = label,
+                description = description,
+                hasBadge = hasBadge
+            )
         }
         return
     }
@@ -164,9 +168,12 @@ private fun OptionCard(
         onClick = onClick,
         shape = cardShape,
         border = cardBorder,
-        enabled = enabled,
     ) {
-        OptionCardContent(icon = icon, label = label, description = description)
+        OptionCardContent(
+            icon = icon,
+            label = label,
+            description = description
+        )
     }
 }
 

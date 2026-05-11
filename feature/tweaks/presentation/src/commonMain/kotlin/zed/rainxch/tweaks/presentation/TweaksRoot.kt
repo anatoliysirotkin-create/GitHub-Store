@@ -142,13 +142,6 @@ fun TweaksRoot(
                             withDismissAction = true,
                         )
                     if (result == SnackbarResult.ActionPerformed) {
-                        // Best-effort relaunch on Desktop; see
-                        // `RestartApp.jvm.kt`. Falls back to plain
-                        // exit if a clean relaunch isn't possible
-                        // (IDE runs, sandbox restrictions) — the
-                        // preference is already persisted so the new
-                        // locale takes effect on the next manual
-                        // launch either way.
                         restartAppAfterLanguageChange()
                     }
                 }

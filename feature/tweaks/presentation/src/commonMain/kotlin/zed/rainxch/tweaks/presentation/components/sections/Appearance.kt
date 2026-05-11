@@ -46,8 +46,10 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.stringResource
+import zed.rainxch.core.domain.getPlatform
 import zed.rainxch.core.domain.model.AppTheme
 import zed.rainxch.core.domain.model.FontTheme
+import zed.rainxch.core.domain.model.Platform
 import zed.rainxch.core.presentation.components.ExpressiveCard
 import zed.rainxch.core.presentation.theme.isDynamicColorAvailable
 import zed.rainxch.core.presentation.utils.displayName
@@ -120,14 +122,16 @@ fun LazyListScope.appearanceSection(
 
         Spacer(Modifier.height(8.dp))
 
-        ToggleSettingCard(
-            title = stringResource(Res.string.scrollbar_option_title),
-            description = stringResource(Res.string.scrollbar_option_description),
-            checked = state.isScrollbarEnabled,
-            onCheckedChange = { enabled ->
-                onAction(TweaksAction.OnScrollbarToggled(enabled))
-            },
-        )
+        if (getPlatform() != Platform.ANDROID) {
+            ToggleSettingCard(
+                title = stringResource(Res.string.scrollbar_option_title),
+                description = stringResource(Res.string.scrollbar_option_description),
+                checked = state.isScrollbarEnabled,
+                onCheckedChange = { enabled ->
+                    onAction(TweaksAction.OnScrollbarToggled(enabled))
+                },
+            )
+        }
     }
 }
 
